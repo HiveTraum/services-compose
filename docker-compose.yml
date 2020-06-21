@@ -26,12 +26,7 @@ services:
     links:
       - jaeger
     ports:
-      - "1777:1777"   # pprof extension
-      - "8887:8888"   # Prometheus metrics exposed by the agent
-      - "55678:55678" # OpenCensus receiver
       - "55680:55680" # OTLP receiver
-      - "55679:55679" # zpages extension
-      - "13133"       # health_check
 
   redis:
     image: redis:alpine
