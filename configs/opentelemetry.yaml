@@ -1,0 +1,18 @@
+receivers:
+  otlp:
+    endpoint: 0.0.0.0:55680
+
+exporters:
+  jaeger:
+    endpoint: "jaeger:14250"
+    insecure: true
+
+extensions:
+  health_check:
+
+service:
+  extensions: [health_check]
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [jaeger]
